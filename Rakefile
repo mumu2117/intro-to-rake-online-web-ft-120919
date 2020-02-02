@@ -1,6 +1,6 @@
 namespace :greeting do
+  
 desc 'outputs hello to the terminal'	
-
 task :hello do	 
   
   puts "hello from Rake!"	   
@@ -21,13 +21,15 @@ namespace :db do
   
   desc 'migrate changes to your database'
   
-  task :environment do './config/environment'
+  task :environment do
+    require_relative './config/environment'
   
   end
   
   task :migrate => :environment do 
     
     Student.create_table
+    
   end
   
   desc 'seed the database with some dummy data'
